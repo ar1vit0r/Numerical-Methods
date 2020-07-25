@@ -7,14 +7,14 @@ matriz_coef = np.zeros((larg, alt),dtype=np.float)
 print(matriz_coef)
 for x in range(larg):
     for y in range(alt):
-        matriz_coef[x,y] = int(input())
+        matriz_coef[x,y] = int(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
 print(matriz_coef)
 
 ordem = int(input("Insira a Ordem: "))
 
 termos_ind = []
 for x in range(alt):
-    termos_ind.append(int(input("Insira o " + str(x+1) + " termo: ")))
+    termos_ind.append(int(input("Insira o " + str(x+1) + " termo independente: ")))
 print(termos_ind)
 
 Det = 1
@@ -40,7 +40,4 @@ for j in range(ordem-1):
         Det = Det*-1
     Det = Det*matriz_coef[j,j]
     #eliminação de gauss
-    if abs(matriz_coef[j,j]) != 0:
-
-
-
+    #if abs(matriz_coef[j,j]) != 0:
