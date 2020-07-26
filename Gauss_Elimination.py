@@ -50,9 +50,12 @@ for j in range(1,ordem-1):
         if Info == 0:
             Info = j
 Det = Det * matriz_coef[ordem-1,ordem-1]
-if Info == 0 and abs(matriz_coef[ordem,ordem]) == 0:
+if Info == 0 and abs(matriz_coef[ordem-1,ordem-1]) == 0:
     Info = ordem
+
+print("\nA matriz é: \n")
 print(matriz_coef)
+print("\nA Det é: \n" + str(Det))
+print("\nO vetor transformado é: \n")
 print(termos_ind)
-print(Det)
-print(Info)
+print("\nA Info é: \n" + str(Info))
