@@ -3,14 +3,13 @@ import numpy as np
 
 larg = int(input("Largura: "))
 alt = int(input("Altura: "))
-matriz_coef = np.zeros((larg, alt),dtype=np.float)
+ordem = int(input("Insira a Ordem: "))
+matriz_coef = np.zeros((alt,larg),dtype=np.float)
 print(matriz_coef)
 for x in range(larg):
     for y in range(alt):
         matriz_coef[x,y] = int(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
 print(matriz_coef)
-
-ordem = int(input("Insira a Ordem: "))
 
 termos_ind = []
 for x in range(alt):
@@ -20,17 +19,16 @@ print(termos_ind)
 Det = 1
 Info = 0
 
-for j in range(ordem-1):
+for j in range(1,ordem-1):
     #escolha do pivô
     pivo = j
     matriz_coef_max = abs(matriz_coef[j,j])
-    k = j+1 # talvez dê problema
-    for k in range(ordem):
-        if abs(matriz_coef[k,j]) > matriz_coef_max:
-            matriz_coef_max = abs(matriz_coef[k,j])
+    for k in range(j+1,ordem):
+        if abs(matriz_coef[k,j]) > matriz_coef_max: ##porquê aqui mds
+            matriz_coef_max = abs(matriz_coef[k,j]) 
             pivo = k
-    if pivo != j:
-        for k in range(ordem):
+    if pivo != j: #troca linhas
+        for k in range(1,ordem):
             temp = matriz_coef[j,k]
             matriz_coef[j,k] = matriz_coef[pivo,k]
             matriz_coef[pivo,k] = temp
@@ -40,4 +38,21 @@ for j in range(ordem-1):
         Det = Det*-1
     Det = Det*matriz_coef[j,j]
     #eliminação de gauss
-    #if abs(matriz_coef[j,j]) != 0:
+    if abs(matriz_coef[j,j]) != 0:
+        r = 1/matriz_coef[j,j]
+        for i in range(j+1,ordem):
+            mult = matriz_coef[i,j]*r
+            matriz_coef[i,j] = 0
+            for k in range(j+1,ordem):
+                matriz_coef[i,k] = matriz_coef[i,k] - (mult*matriz_coef[j,k])
+            termos_ind[i] = termos_ind[i] - (mult*termos_ind[j])
+    else:
+        if Info == 0:
+            Info = j
+Det = Det * matriz_coef[ordem-1,ordem-1]
+if Info == 0 and abs(matriz_coef[ordem,ordem]) == 0:
+    Info = ordem
+print(matriz_coef)
+print(termos_ind)
+print(Det)
+print(Info)
