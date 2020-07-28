@@ -3,7 +3,7 @@ import numpy as np
 
 larg = int(input("Largura: "))
 alt = int(input("Altura: "))
-ordem = int(input("Insira a Ordem: "))
+ordem = int(input("Insira a ordem: "))
 matriz_coef = np.zeros((alt,larg),dtype=np.float)
 print(matriz_coef)
 for x in range(larg):
@@ -19,16 +19,16 @@ print(termos_ind)
 Det = 1
 Info = 0
 
-for j in range(1,ordem-1):
+for j in range(ordem-1):
     #escolha do pivô
     pivo = j
     matriz_coef_max = abs(matriz_coef[j,j])
-    for k in range(j+1,ordem):
+    for k in range(j+1,ordem-1):
         if abs(matriz_coef[k,j]) > matriz_coef_max: ##porquê aqui mds
             matriz_coef_max = abs(matriz_coef[k,j]) 
             pivo = k
     if pivo != j: #troca linhas
-        for k in range(1,ordem):
+        for k in range(ordem-1):
             temp = matriz_coef[j,k]
             matriz_coef[j,k] = matriz_coef[pivo,k]
             matriz_coef[pivo,k] = temp
@@ -40,10 +40,10 @@ for j in range(1,ordem-1):
     #eliminação de gauss
     if abs(matriz_coef[j,j]) != 0:
         r = 1/matriz_coef[j,j]
-        for i in range(j+1,ordem):
+        for i in range(j+1,ordem-1):
             mult = matriz_coef[i,j]*r
             matriz_coef[i,j] = 0
-            for k in range(j+1,ordem):
+            for k in range(j+1,ordem-1):
                 matriz_coef[i,k] = matriz_coef[i,k] - (mult*matriz_coef[j,k])
             termos_ind[i] = termos_ind[i] - (mult*termos_ind[j])
     else:
@@ -55,7 +55,7 @@ if Info == 0 and abs(matriz_coef[ordem-1,ordem-1]) == 0:
 
 print("\nA matriz é: \n")
 print(matriz_coef)
-print("\nA Det é: \n" + str(Det))
+print("\nA Det é: " + str(Det))
 print("\nO vetor transformado é: \n")
 print(termos_ind)
-print("\nA Info é: \n" + str(Info))
+print("\nA Info é: " + str(Info))

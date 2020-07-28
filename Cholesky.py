@@ -14,9 +14,9 @@ print(matriz_coef)
 Det = 1
 Info = 0
 
-for j in range(1,ordem):
+for j in range(ordem-1):
     soma = 0
-    for k in range(1,j-1):
+    for k in range(j-1):
         soma = soma + (matriz_coef[j,k] * matriz_coef[j,k])
     temp = matriz_coef[j,j] - soma
     if temp > 0:
@@ -27,13 +27,13 @@ for j in range(1,ordem):
         Info = j
         print("\nMatriz não é definida positiva.\n")
         raise SystemExit
-    for i in range(j+1,ordem):
+    for i in range(j+1,ordem-1):
         soma = 0
-        for k in range(1,j-1):
+        for k in range(j-1):
             soma = soma + (matriz_coef[i,k] * matriz_coef[j,k])
         matriz_coef[i,j] = (matriz_coef[i,j] - soma) * r
 
 print("\nA matriz é: \n")
 print(matriz_coef)
-print("\nA Det é: \n" + str(Det))
-print("A Info é: \n" + str(Info))
+print("\nA Det é: " + str(Det))
+print("\nA Info é: " + str(Info))
