@@ -9,11 +9,13 @@ print(matriz_coef)
 for x in range(larg):
     for y in range(alt):
         matriz_coef[x,y] = int(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
+print("\n")
 print(matriz_coef)
-
+print("\n")
 termos_ind = []
 for x in range(alt):
     termos_ind.append(int(input("Insira o " + str(x+1) + " termo independente: ")))
+print("\n")
 print(termos_ind)
 
 Det = 1
