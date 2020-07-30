@@ -49,10 +49,14 @@ for j in range(min(alt,larg)):
         if Info == 0:
             Info = j
 
+L = np.tril(matriz_coef)
+for i in range(alt):
+    L[i,i] = L[i,i]/L[i,i]
+
 print("\nA matriz é: \n")
 print(matriz_coef)
 print("\nA matriz L é: \n")
-print(np.tril(matriz_coef,-1))
+print(L)
 print("\nA matriz U é: \n")
 print(np.triu(matriz_coef))
 print("\nO vetor pivot é: \n")
