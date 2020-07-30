@@ -8,13 +8,13 @@ ordem = len(matriz_coef)
 print(matriz_coef)
 for x in range(alt):
     for y in range(larg):
-        matriz_coef[x,y] = int(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
+        matriz_coef[x,y] = float(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
 print("\n")
 print(matriz_coef)
 print("\n")
 termos_ind = []
 for x in range(alt):
-    termos_ind.append(int(input("Insira o " + str(x+1) + " termo independente: ")))
+    termos_ind.append(float(input("Insira o " + str(x+1) + " termo independente: ")))
 print("\n")
 print(termos_ind)
 
