@@ -1,14 +1,14 @@
 import numpy as np
 
-ordem = int(input("Insira a ordem: "))
 toler = int(input("Insira a tolerância: "))
 iterMax = int(input("Insira o número máximo de iterações: "))
 larg = int(input("Largura: "))
 alt = int(input("Altura: "))
 matriz_coef = np.zeros((alt,larg),dtype=np.float)
+ordem = len(matriz_coef)
 print(matriz_coef)
-for x in range(larg):
-    for y in range(alt):
+for x in range(alt):
+    for y in range(larg):
         matriz_coef[x,y] = int(input("Insira o elemento da \n Linha: " + str(x+1) + " Coluna: " + str(y+1) + ".\n"))
 print("\n")
 print(matriz_coef)
