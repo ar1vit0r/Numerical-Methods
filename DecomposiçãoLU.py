@@ -19,7 +19,7 @@ print(Pivot)
 Pdu = 1
 Info = 1
 for j in range(min(alt,larg)):
-    #Escolhe pivô
+#Escolhe pivô
     pivo = j
     matriz_coef_max = abs(matriz_coef[j,j])
     for k in range(j+1,alt):
@@ -27,7 +27,7 @@ for j in range(min(alt,larg)):
             matriz_coef_max = abs(matriz_coef[k,j])
             pivo = k
     if pivo != j:
-        #troca de linhas
+#troca de linhas
         for k in range(larg):
             temp = matriz_coef[j,k]
             matriz_coef[j,k] = matriz_coef[pivo,k]
@@ -37,7 +37,7 @@ for j in range(min(alt,larg)):
         Pivot[pivo] = temp
         Pdu = Pdu * -1
     Pdu = Pdu * matriz_coef[j,j]
-    #eliminação de gauss
+#eliminação de gauss
     if abs(matriz_coef[j,j]) != 0:
         r = 1/matriz_coef[j,j]
         for i in range(j+1,alt):

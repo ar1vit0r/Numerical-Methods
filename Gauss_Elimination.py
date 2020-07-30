@@ -22,14 +22,15 @@ Det = 1
 Info = 0
 
 for j in range(ordem):
-    #escolha do pivô
+#escolha do pivô
     pivo = j
     matriz_coef_max = abs(matriz_coef[j,j])
     for k in range(j+1,ordem):
         if abs(matriz_coef[k,j]) > matriz_coef_max:
             matriz_coef_max = abs(matriz_coef[k,j]) 
             pivo = k
-    if pivo != j: #troca linhas
+    if pivo != j: 
+#troca linhas
         for k in range(ordem):
             temp = matriz_coef[j,k]
             matriz_coef[j,k] = matriz_coef[pivo,k]
@@ -39,11 +40,11 @@ for j in range(ordem):
         termos_ind[pivo] = temp
         Det = Det*-1
     Det = Det*matriz_coef[j,j]
-    #eliminação de gauss
+#eliminação de gauss
     if abs(matriz_coef[j,j]) != 0:
         r = 1/matriz_coef[j,j]
         for i in range(j+1,ordem):
-            mult = matriz_coef[i,j]*r
+            mult = matriz_coef[i,j] * r
             matriz_coef[i,j] = 0
             for k in range(j+1,ordem):
                 matriz_coef[i,k] = matriz_coef[i,k] - (mult*matriz_coef[j,k])
@@ -51,6 +52,7 @@ for j in range(ordem):
     else:
         if Info == 0:
             Info = j
+
 Det = Det * matriz_coef[ordem-1,ordem-1]
 if Info == 0 and abs(matriz_coef[ordem-1,ordem-1]) == 0:
     Info = ordem
