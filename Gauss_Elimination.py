@@ -3,8 +3,8 @@ import numpy as np
 
 larg = int(input("Largura: "))
 alt = int(input("Altura: "))
-ordem = int(input("Insira a ordem: "))
 matriz_coef = np.zeros((alt,larg),dtype=np.float)
+ordem = len(matriz_coef)
 print(matriz_coef)
 for x in range(alt):
     for y in range(larg):
